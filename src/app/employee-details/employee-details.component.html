@@ -1,0 +1,18 @@
+<div>
+    <nav class="navbar navbar-default">
+        <div>
+            <ul class="nav navbar-nav">
+                <li [ngClass]="{'active':newFeedback}"><a (click)="openTab('new')">New FeedBack</a></li>
+                <li [ngClass]="{'active':feedbackList}"><a (click)="openTab('list')">List</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <div *ngIf="newFeedback">
+                <app-new-feedback></app-new-feedback>
+            </div>
+            <div *ngIf="feedbackList">
+                <app-feedback-list></app-feedback-list>
+            </div>
+        </div>
+    </nav>
+</div>

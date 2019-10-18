@@ -1,0 +1,30 @@
+{
+    "feedbacks": [
+        {
+            "projectName": "Demo 1",
+            "rating": 4,
+            "comments": "nice",
+            "mgrComment": "good work",
+            "mgrRating": 5
+        },
+        {
+            "projectName": "Demo 2",
+            "rating": 4,
+            "comments": "nice",
+            "mgrComment": "good work",
+            "mgrRating": 5
+        }, {
+            "projectName": "Demo 3",
+            "rating": 4,
+            "comments": "nice",
+            "mgrComment": "good work",
+            "mgrRating": 5
+        }, {
+            "projectName": "Demo 4",
+            "rating": 4,
+            "comments": "nice",
+            "mgrComment": "good work",
+            "mgrRating": 5
+        }
+    ]
+}

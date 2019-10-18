@@ -1,0 +1,25 @@
+<div class="col-sm-12">
+    <div class="sidenav  col-sm-2">
+        <div class="col-sm-8">
+            <label><input type="radio"
+                       [checked]="employeeRadio"
+                       [routerLink]="['/feedback/employee-details']"
+                       class="form-check-input"
+                       name="optradio">Employee</label>
+            <label><input type="radio"
+                       [checked]="managerRadio"
+                       [routerLink]="['/feedback/manager-review']"
+                       class="form-check-input"
+                       name="optradio">Manager</label>
+        </div>
+    </div>
+    <div class="col-sm-12 main">
+        <div class="title">
+            <h2 class="col-sm-9"> Welcome {{userDetails.userName}}</h2>
+        </div>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</div>

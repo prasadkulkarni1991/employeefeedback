@@ -1,0 +1,56 @@
+<div>
+    <div class="table-responsive"
+         fxFlex="100">
+        <form [formGroup]="editFormvalue">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sr no</th>
+                        <th>Emp Id</th>
+                        <th>Emp Name</th>
+                        <th>Project Name</th>
+                        <th>Rating</th>
+                        <th>Comment</th>
+                        <th>Mgr Rating</th>
+                        <th>Mgr Comment</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let feedback of this.mgrfeedbackList | sortBy:'empId'; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{feedback.empId}}</td>
+                        <td>{{feedback.empName}}</td>
+                        <td>{{feedback.projectName}}</td>
+                        <td>{{feedback.rating}}</td>
+                        <td>{{feedback.comment}}</td>
+
+                        <td><span *ngIf="!feedback.isedit">{{feedback.mgrRating}}</span> <input type="text"
+                                   *ngIf="feedback.isedit"
+                                   formControlName="mgrRating" /></td>
+                        <td><span *ngIf="!feedback.isedit">{{feedback.mgrComment}}</span> <input type="text"
+                                   *ngIf="feedback.isedit"
+                                   formControlName="mgrComment" /></td>
+
+                        <td>
+                            <button *ngIf="feedback.isedit"
+                                    class="btn btn-success action-btn-group"
+                                    (click)="saveRow(editFormvalue, i)">
+                                <span><i class="fa fa-plus"></i></span></button>
+                            <button class="btn btn-danger action-btn-group"
+                                    (click)="deleteModal.openModal(feedback,i)">
+                                <span><i class="fa fa-trash"></i></span></button>
+
+                            <button *ngIf="!feedback.isedit"
+                                    class=" btn btn-warning action-btn-group"
+                                    (click)="updateRow(i)">
+                                <span><i class="fa fa-edit"></i></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+        <app-delete-feedback (messageEvent)="confirmDelete($event)"
+                             #deleteModal></app-delete-feedback>
+    </div>

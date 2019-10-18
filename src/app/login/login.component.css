@@ -1,0 +1,26 @@
+.login {
+  position: fixed;
+  padding: 0 45px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50px, -50px);
+}
+
+h2 {
+  color: green;
+  margin-bottom: 8px;
+}
+
+button {
+  text-transform: uppercase;
+  width: 100%;
+}
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 50%;
+}

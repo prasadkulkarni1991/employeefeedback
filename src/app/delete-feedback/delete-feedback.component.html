@@ -1,0 +1,24 @@
+<div class="modal fade"
+     id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                Are you sure want to delete <strong>{{employeeName?.empName}} </strong>feedback?
+            </div>
+
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-primary"
+                        (click)="deleteData(employeeName, index)">Yes</button>
+                <button type="button"
+                        class="btn btn-danger"
+                        (click)="hideModal()">No</button>
+                <button type="button"
+                        id="close-modal"
+                        data-dismiss="modal"
+                        style="display: none">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

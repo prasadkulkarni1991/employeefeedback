@@ -1,0 +1,70 @@
+<div class="col-sm-6">
+    <form [formGroup]="feedbackForm"
+          (ngSubmit)="submitFeedback(feedbackForm)"
+          fxLayout="column"
+          novalidate
+          class="form-horizontal">
+        <div class="form-group">
+            <label>Emp Name</label>
+            <input type="text"
+                   class="form-control"
+                   required
+                   formControlName="empName">
+            <div *ngIf="feedbackForm.controls['empName'].invalid">
+                <span *ngIf="feedbackForm.controls['empName'].required">Name is required</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Emp Id</label>
+            <input type="text"
+                   class="form-control"
+                   required
+                   formControlName="empId">
+            <div *ngIf="(feedbackForm.controls['empId'].dirty) && feedbackForm.controls['empId'].invalid">
+                <span *ngIf="feedbackForm.controls['empId'].required">empId is required</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>project name</label>
+
+            <select formControlName="project"
+                    class="form-control">
+                <option *ngFor="let project of projectList"> {{project.name}}</option>
+            </select>
+
+            <div *ngIf="feedbackForm.controls['project'].invalid">
+                <span *ngIf="feedbackForm.controls['project'].required">project is required</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>rating</label>
+            <input type="text"
+                   class="form-control"
+                   required
+                   formControlName="rating">
+            <div *ngIf="feedbackForm.controls['rating'].invalid">
+                <span *ngIf="feedbackForm.controls['rating'].required">rating is required</span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>comment</label>
+            <input type="text"
+                   class="form-control"
+                   required
+                   formControlName="comment">
+            <div *ngIf="feedbackForm.controls['comment'].invalid">
+                <span *ngIf="feedbackForm.controls['comment'].required">comment is required</span>
+            </div>
+        </div>
+
+        <div class="form-group pull-right">
+            <button type="submit"
+                    [disabled]="!feedbackForm.valid"
+                    class="btn btn-primary center-block">Submit</button>
+        </div>
+    </form>
+</div>

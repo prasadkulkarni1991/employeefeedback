@@ -1,0 +1,59 @@
+<div>
+    <div class="table-responsive"
+         fxFlex="100">
+        <form [formGroup]="ownFeedbackForm">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Project Name</th>
+                        <th>Rating</th>
+                        <th>Comment</th>
+                        <th>Mgr Rating</th>
+                        <th>Mgr Comment</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let feedback of this.feedbackList; let i = index">
+                        <td>{{i+1}}</td>
+                        <td><span *ngIf="!feedback.isedit">{{feedback.projectName}}</span>
+                            <select *ngIf="feedback.isedit"
+                                    formControlName="projectName"
+                                    class="form-control"
+                                    >
+                                <option [value]="project.name" *ngFor="let project of projectList"> {{project.name}}</option>
+                            </select>
+                        </td>
+                        <td><span *ngIf="!feedback.isedit">{{feedback.rating}}</span>
+                            <input type="text"
+                                   *ngIf="feedback.isedit"
+                                   formControlName="rating" /></td>
+                        <td><span *ngIf="!feedback.isedit">{{feedback.comment}}</span>
+                            <input type="text"
+                                   *ngIf="feedback.isedit"
+                                   formControlName="comment" /></td>
+                        <td>{{feedback.mgrComment}}</td>
+                        <td>{{feedback.mgrRating}}</td>
+
+                        <td>
+                            <button *ngIf="feedback.isedit"
+                                    class="btn btn-success action-btn-group"
+                                    (click)="saveRow(ownFeedbackForm, i)">
+                                <span><i class="fa fa-plus"></i></span></button>
+                            <button *ngIf="!(feedback.mgrRating && feedback.mgrComment)" 
+                            class="btn btn-danger action-btn-group"
+                            (click)="deleteOwnFeedback(i)">
+                                <span><i class="fa fa-trash"></i></span></button>
+                            <button *ngIf="!(feedback.mgrRating && feedback.mgrComment)"
+                                    class=" btn btn-warning action-btn-group"
+                                    (click)="editOwnFeedback(i)">
+                                <span><i class="fa fa-edit"></i></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+
+    </div>
